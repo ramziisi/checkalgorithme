@@ -1,0 +1,27 @@
+ALGORITHM VARalgorithm_name
+    var ch:STRING;
+    var countnumber:INTEGER:=0;
+    countmot:INTEGER:=0;
+    countvoi:INTEGER:= 0;
+BEGIN
+    write("taper la phrase ch ");
+    read(ch);
+    
+    IF (ch[length(ch)]=".") THEN
+         FOR i FROM 1 TO length(ch) STEP 1 DO
+         IF (ch[i]=" ") THEN
+             countmot:=countmot+1;
+         
+         ELSE_IF(ch[i]='a' OR ch[i]='i' OR ch[i]='o,' OR ch[i]='e' OR ch[i]='u'])THEN
+         countvoi:=countvoi+1;
+ 
+         END_IF
+     
+        
+    END_FOR
+    ELSE
+        write("taper la phrase ch  fini par un point ");
+    read(ch);
+    END_IF
+  write(countmot+1,length(ch)-1,countvoi);
+END
