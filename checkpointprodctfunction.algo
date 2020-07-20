@@ -1,0 +1,50 @@
+   Read(tab)
+  Read(tab2)
+ ALGORITHM dot_product
+VAR
+    tab,tab1:: ARRAY_OF INTEGER[50];
+    ps:=0:INTEGER;
+i:INTEGER;
+BEGIN
+IF (tab.length>tab2.length) THEN
+    FOR i FROM 1 TO tab.length STEP 1  DO
+        ps=ps+tab[i]*tab2[i]
+    END_FOR
+ELSE
+   FOR i FROM 1 TO tab2.length STEP 1  DO
+        ps=ps+tab[i]*tab2[i]
+    END_FOR
+END_IF
+    
+END
+ALGORITHM IRortogonal
+VAR
+    tab,tab1:: ARRAY_OF INTEGER[50];
+BEGIN
+    IF (dot_product=0) THEN
+        Write("is orthogonal")
+    ELSE
+        Write("is not orthogonal ")
+    END_IF
+     FUNCTION dot_product(tab,tab2:ARRAY_OF INTEGER) : STRING
+    VAR
+       msg:STRING;
+       i:INTEGER;
+    BEGIN
+        IF (tab.length>tab2.length) THEN
+    FOR i FROM 1 TO tab.length STEP 1  DO
+        ps=ps+tab[i]*tab2[i]
+    END_FOR
+ELSE
+   FOR i FROM 1 TO tab2.length STEP 1  DO
+        ps=ps+tab[i]*tab2[i]
+    END_FOR
+END_IF
+IF (ps=0) THEN
+msg="is orthogonal"
+    
+ELSE
+    msg="is not orthogonal "
+END_IF
+        RETURN msg ;
+    END
