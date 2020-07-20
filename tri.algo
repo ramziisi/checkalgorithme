@@ -1,0 +1,13 @@
+PROCEDURE tri(tab: ARRAY_OF INTEGER[50];)
+VAR
+    var i,a:INTEGER;
+
+BEGIN
+   FOR i FROM 1 TO n STEP 1 DO
+      IF (t[i+1]<t[i]) THEN
+         a= t[i+1];
+         t[i+1]=t[i];
+         t[i]=a;
+      END_IF
+   END_FOR
+END
