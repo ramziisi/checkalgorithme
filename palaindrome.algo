@@ -1,0 +1,23 @@
+ ALGORITHM algorithm_name
+ VAR
+    i:INTEGER:=1;
+    j:INTEGER:=str.length;
+
+ BEGIN
+   
+
+ FUNCTION palaindrome(str:STRING,i,j :INTEGER) : BOOLEAN
+  
+ BEGIN
+ IF (i=j) THEN
+     return true
+ END_IF
+IF ((str[s] != str[e]) ) THEN
+        return false;
+     END_IF
+     IF (i<j) THEN
+        palaindrome(str,i+1,j-1);
+     END_IF
+  
+ END
+  END
