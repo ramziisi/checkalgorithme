@@ -1,0 +1,85 @@
+//function that gives the number of nodes in the tree.
+bst  :	STRUCT
+                     val :INTEGER;
+                    lc : bst;
+                    rc : bst;
+                END_STRUCT
+
+FUNCTION numberNOeds(node:bst) : INTEGER
+VAR
+    x:INTEGER:=1;
+
+BEGIN
+    IF (node <> NULL ) THEN
+        numberNOeds(node^.lc);
+        X=x+1;
+         numberNOeds(node^.rc);
+         x=x+1;
+         
+    ELSE
+       return x=0;
+END   
+//Write a function that gives the maximum value in the tree.
+FUNCTION maxnode(node:^bst) : INTEGER
+
+BEGIN
+    IF (node<> NULL) THEN
+        IF (node^.rc = NULL) THEN
+            return node^.val;
+        ELSE
+            return maxnode(node.^rc)
+            
+        END_IF
+
+    END_IF
+END
+//Write a function that gives the height of a tree.
+FUNCTION maxnode(node:^bst) : INTEGER
+
+  lDepth :INTEGER := maxDepth(node.lc); 
+  rDepth :INTEGER := maxDepth(node.rc);
+BEGIN
+IF (node=NULL) THEN
+return 0;
+ELSE
+      IF (lDepth > rDepth) THEN
+                return (lDepth + 1); 
+          ELSE
+                return (rDepth + 1);
+      END_IF
+END_IF
+
+
+END
+//Write a function that gives the number of leaves in the tree.
+FUNCTION long_branch(node:^bst) : INTEGER
+
+BEGIN
+  IF(node=NULL)THEN
+  return 0;
+  END_IF
+  IF (node.lc=NULL && node.rc=NULL) THEN
+      return 1
+  ELSE
+      return getLeafCount(node.lc) + getLeafCount(node.rc)
+  END_IF
+END
+//Write a function to test if the tree is a full binary tree.
+FUNCTION fulltree(node:^bst) : BOOLEAN
+
+BEGIN
+   
+   IF (node=NULL) THEN
+       return True;
+   ELSE_IF (node.lc = NULL && node.rc == NULL) THEN
+       return true;
+
+   ELSE_IF(node.lc<> NULL && node.rc <> NULL)THEN
+       return (isFullTree(node.lc) and isFullTree(node.rc)) ;
+    ELSE
+    return False;   
+   END_IF
+
+END
+  
+ 
